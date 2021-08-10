@@ -76,7 +76,7 @@ export default class Chat extends React.Component {
         return (
             <div className='chat-app'>
                 <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
-                {/* <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} /> */}
+                <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
             </div>
         );
     }
