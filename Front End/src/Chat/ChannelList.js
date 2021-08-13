@@ -4,6 +4,7 @@ import Channel from './Channel'
 export class ChannelList extends React.Component {
 
 handleClick = id => {
+    // console.log('channel click')
     this.props.onSelectChannel(id);
 }
 
