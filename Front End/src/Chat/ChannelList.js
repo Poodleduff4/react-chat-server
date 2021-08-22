@@ -17,6 +17,6 @@ handleClick = id => {
             <div className="channel-list">
                 {list}
             </div>
-        );
+        )
     }
 }

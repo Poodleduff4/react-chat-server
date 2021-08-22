@@ -1,29 +1,43 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').createServer(app);
 const PORT = 8080;
-var io = require('socket.io')(http);
+const io = require("socket.io")(http, {
+    cors: {
+      origin: true,
+      methods: ["GET", "POST"],
+      allowedHeaders: ["my-custom-header"],
+      credentials: true
+    }
+  });
 const path = require('path');
+var cors = require('cors');
 
 var STATIC_CHANNELS = [{
     name: 'Global chat',
     participants: 0,
     id: 1,
-    sockets: []
+    sockets: [],
+    messages: []
 }, {
-    name: 'Funny',
+    name: 'Ayo',
     participants: 0,
     id: 2,
-    sockets: []
+    sockets: [],
+    messages: []
 }];
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header('Accept', '*');
     next();
 })
 
+// app.use(cors());
+
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '/piss.html'));
+    // res.sendFile(path.join(__dirname, '/piss.html'));
 });
 
 http.listen(PORT, () => {
