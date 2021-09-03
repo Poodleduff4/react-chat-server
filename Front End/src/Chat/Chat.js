@@ -92,7 +92,7 @@ export default class Chat extends React.Component {
 
         return (
             <div className='chat-app'>
-                <p>Name: {this.props.name}</p>
+                {/* <p>Name: {this.props.name}</p> */}
                 {/* <LoginForm sendLoginInfo={this.handleNameChange} /> */}
                 <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
                 <MessagePanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />

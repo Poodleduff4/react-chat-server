@@ -3,13 +3,14 @@
     height: 100%;
     display: flex;
     --bg-color: rgb(54, 57, 63);
+    color: white;
     background-color: var(--bg-color);
 
     .channel-list {
         width: 20%;
         border: 1px solid rgb(224, 224, 224);
         margin: 10px;
-        height:fit-content;
+        height:100%;
 
         .channel-item {
             border-bottom: 1px solid rgb(224, 224, 224); 
@@ -58,7 +59,7 @@
                 }
 
                 &:hover {
-                    background-color: rgb(224, 224, 224);
+                    background-color: rgb(100, 100, 100);
                 }
             }
         }
@@ -66,13 +67,16 @@
         .message-input {
             position: fixed;
             bottom: 0;
+            // right: 0;
             width: 100%;
             border: none;
             input {
-                width: 75%;
+                width: 50%;
+                // right: 0;
             }
             button {
-                width:5%;
+                width:fit-content;
+                // right: 0;
             }
         }
     }
