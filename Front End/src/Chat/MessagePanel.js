@@ -25,7 +25,9 @@ export default class MessagePanel extends React.Component {
         if (this.props.channel && this.props.channel.messages) {
             console.log('ayo')
             console.log(this.props.channel)
-            list = this.props.channel.messages.map(m => <Message key={m.id} id={m.id} senderName={m.senderName} text={m.text} />);
+            var date = new Date();
+            let time = date.getHours()%12 + (date.getMinutes() < 10 ? ':0' : ':') + date.getMinutes();
+            list = this.props.channel.messages.map(m => <Message key={m.id} id={m.id} senderName={m.senderName} text={m.text} time={time}/>);
         }
         return (
             <div className="message-panel">

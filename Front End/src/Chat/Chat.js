@@ -4,8 +4,8 @@ import './chat.scss';
 import MessagePanel from './MessagePanel';
 import LoginForm from './LoginForm.js';
 import socketClient from "socket.io-client";
-// const SERVER = "http://127.0.0.1:8080";
-const SERVER = "http://192.168.2.134:8080";
+const SERVER = "http://127.0.0.1:8080";
+// const SERVER = "http://192.168.2.148:8080";
 export default class Chat extends React.Component {
     state = {
         channels: null,
@@ -39,10 +39,6 @@ export default class Chat extends React.Component {
         socket.on('message', message => {  //{ channel_id, text, senderName: this.socket.id, id: Date.now() }
             let channels = this.state.channels
             channels.forEach(c => {
-                console.log('message channel')
-                console.log(message.channel_id.id)
-                console.log()
-                console.log('msgch')
                 if (c.id === message.channel_id.id) {
                     console.log('first')
                     console.log(c.messages)
@@ -62,7 +58,7 @@ export default class Chat extends React.Component {
 
     loadChannels = async () => {
         //http://192.168.2.134:8080/getChannels
-        fetch('http://192.168.2.134:8080/getChannels').then(async response => {
+        fetch(SERVER + '/getChannels').then(async response => {
             let data = await response.json();
             this.setState({ channels: data.channels });
         })

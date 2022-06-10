@@ -8,7 +8,7 @@ export default class Channel extends React.Component {
     render() {
         return (
             <div className="channel-item" onClick={this.click}>
-                <div>{this.props.name}</div>
+                <h3>{this.props.name}</h3>
                 <span>{this.props.participants}</span>
             </div>
         )
